@@ -1,0 +1,53 @@
+﻿using Caliburn.Micro;
+using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using WinView.Models;
+using WinView.Services;
+
+namespace WinView.ViewModels
+{
+    class ShellViewModel : Screen
+    {
+        readonly IStorageService m_StorageService;
+        readonly DialogManager m_DialogManager;
+
+        public ShellViewModel(IStorageService storageService, DialogManager dialogManager)
+        {
+            m_StorageService = storageService;
+            m_DialogManager = dialogManager;
+        }
+
+        public BindableCollection<Image> Images { get; } = new BindableCollection<Image>();
+
+        Image m_SelectedImage;
+
+        public Image SelectedImage
+        {
+            get => m_SelectedImage;
+            set
+            {
+                Set(ref m_SelectedImage, value);
+            }
+        }
+
+        protected override async Task OnInitializeAsync(CancellationToken cancellationToken)
+        {
+            try
+            {
+                var args = Environment.GetCommandLineArgs();
+                if (args.Length > 1)
+                {
+                    var imageUrls = await m_StorageService.GetImageUrls(args[1]);
+                    Images.AddRange(imageUrls.Select(imageUrl => new Image(m_StorageService.ImageUrlToPreview(imageUrl))));
+                    SelectedImage = Images[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                m_DialogManager.HandleError(ex);
+            }
+        }
+    }
+}

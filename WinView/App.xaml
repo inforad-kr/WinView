@@ -1,0 +1,23 @@
+﻿<Application x:Class="WinView.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WinView">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <local:Bootstrapper x:Key="Bootstrapper"/>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <ObjectDataProvider x:Key="Settings" ObjectInstance="{x:Static local:Settings.Default}" />
+            <Style x:Key="WindowStyle" TargetType="Window">
+                <Setter Property="Icon" Value="App.ico" />
+                <Setter Property="FontSize" Value="{Binding Source={StaticResource Settings}, Path=FontSize}" />
+            </Style>
+            <Style x:Key="SelectionBorderStyle" TargetType="Border">
+                <Setter Property="Background" Value="Black" />
+                <Setter Property="BorderThickness" Value="{Binding Source={StaticResource Settings}, Path=SelectionBorderThickness}" />
+            </Style>
+        </ResourceDictionary>         
+    </Application.Resources>
+</Application>
