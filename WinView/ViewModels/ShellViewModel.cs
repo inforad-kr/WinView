@@ -13,9 +13,9 @@ namespace WinView.ViewModels
         readonly IStorageService m_StorageService;
         readonly DialogManager m_DialogManager;
 
-        public ShellViewModel(IStorageService storageService, DialogManager dialogManager)
+        public ShellViewModel(DialogManager dialogManager)
         {
-            m_StorageService = storageService;
+            m_StorageService = IoC.Get<IStorageService>(Settings.Default.StorageType);
             m_DialogManager = dialogManager;
         }
 

@@ -2,8 +2,8 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WinView" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="StorageType" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="StorageType" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">simple</Value>
     </Setting>
     <Setting Name="StorageUrl" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://localhost:5201</Value>

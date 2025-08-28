@@ -25,10 +25,10 @@ namespace WinView {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int StorageType {
+        [global::System.Configuration.DefaultSettingValueAttribute("simple")]
+        public string StorageType {
             get {
-                return ((int)(this["StorageType"]));
+                return ((string)(this["StorageType"]));
             }
         }
         

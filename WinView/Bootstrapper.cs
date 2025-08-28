@@ -21,14 +21,8 @@ namespace WinView
         {
             m_Container
                 .Singleton<IWindowManager, WindowManager>()
-                .Singleton<DialogManager>();
-
-            switch (Settings.Default.StorageType)
-            {
-                case 0:
-                    m_Container.Singleton<IStorageService, SimpleStorageService>();
-                    break;
-            }
+                .Singleton<DialogManager>()
+                .Singleton<IStorageService, SimpleStorageService>("simple");
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)
