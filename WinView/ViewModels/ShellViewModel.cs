@@ -34,19 +34,19 @@ namespace WinView.ViewModels
 
         protected override async Task OnInitializeAsync(CancellationToken cancellationToken)
         {
-            try
+            var args = Environment.GetCommandLineArgs();
+            if (args.Length > 1)
             {
-                var args = Environment.GetCommandLineArgs();
-                if (args.Length > 1)
+                try
                 {
                     var imageUrls = await m_StorageService.GetImageUrls(args[1]);
                     Images.AddRange(imageUrls.Select(imageUrl => new Image(m_StorageService.ImageUrlToPreview(imageUrl))));
                     SelectedImage = Images[0];
                 }
-            }
-            catch (Exception ex)
-            {
-                m_DialogManager.HandleError(ex);
+                catch (Exception ex)
+                {
+                    m_DialogManager.HandleError(ex);
+                }
             }
         }
     }
