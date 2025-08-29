@@ -8,7 +8,7 @@ WinView is a desktop image viewer designed for [XPACS](https://iberisoft.github.
 
 ## Usage
 
-The application can work with local files and files stored in [Simple Storage](https://github.com/iberisoft/x-view-simple-storage),
+The application can work with local files and files stored in a [simple storage](https://github.com/iberisoft/x-view-simple-storage),
 depending on the value of the `StorageType` setting.
 
 ### Local Files
