@@ -40,7 +40,7 @@ namespace WinView.ViewModels
                 try
                 {
                     var imageUrls = await m_StorageService.GetImageUrls(args[1]);
-                    Images.AddRange(imageUrls.Select(imageUrl => new Image(m_StorageService.ImageUrlToPreview(imageUrl))));
+                    Images.AddRange(imageUrls.Select(imageUrl => new Image(imageUrl)));
                     SelectedImage = Images[0];
                 }
                 catch (Exception ex)

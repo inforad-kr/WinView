@@ -1,12 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace WinView.Services
 {
     interface IStorageService
     {
         Task<string[]> GetImageUrls(string query);
-
-        Func<string, string> ImageUrlToPreview { get; }
-    }
+   }
 }

@@ -19,9 +19,7 @@ namespace WinView.Services
             var queryParams = HttpUtility.ParseQueryString(query);
             var studyId = queryParams["studyid"];
             var fileNames = await client.GetFromJsonAsync<string[]>("storage/" + studyId);
-            return fileNames.Select(fileName => $"{client.BaseAddress}storage/{studyId}/{fileName}").ToArray();
+            return fileNames.Select(fileName => $"{client.BaseAddress}storage/{studyId}/{Path.ChangeExtension(fileName, ".jpg")}").ToArray();
         }
-
-        public Func<string, string> ImageUrlToPreview => url => Path.ChangeExtension(url, ".jpg");
     }
 }
