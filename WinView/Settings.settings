@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="StorageType" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">simple</Value>
+      <Value Profile="(Default)">local</Value>
     </Setting>
     <Setting Name="StorageUrl" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://localhost:5201</Value>

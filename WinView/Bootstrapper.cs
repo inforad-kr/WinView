@@ -22,6 +22,7 @@ namespace WinView
             m_Container
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<DialogManager>()
+                .Singleton<IStorageService, LocalStorageService>("local")
                 .Singleton<IStorageService, SimpleStorageService>("simple");
 
             GetType().Assembly.GetTypes()
