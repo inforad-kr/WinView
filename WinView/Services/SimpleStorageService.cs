@@ -17,9 +17,9 @@ namespace WinView.Services
                 BaseAddress = new Uri(Settings.Default.StorageUrl)
             };
             var queryParams = HttpUtility.ParseQueryString(query);
-            var studyId = queryParams["studyid"];
-            var fileNames = await client.GetFromJsonAsync<string[]>("storage/" + studyId);
-            return fileNames.Select(fileName => $"{client.BaseAddress}storage/{studyId}/{Path.ChangeExtension(fileName, ".jpg")}").ToArray();
+            var folderName = queryParams["foldername"];
+            var fileNames = await client.GetFromJsonAsync<string[]>("storage/" + folderName);
+            return fileNames.Select(fileName => $"{client.BaseAddress}storage/{folderName}/{Path.ChangeExtension(fileName, ".jpg")}").ToArray();
         }
     }
 }
