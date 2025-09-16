@@ -17,7 +17,7 @@
     <ApplicationIcon>App.ico</ApplicationIcon>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Copyright>Copyright © 2025</Copyright>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <Authors>Pavel Zaytsev</Authors>
     <Company>Iberis Software</Company>
   </PropertyGroup>
@@ -99,7 +99,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="System.Net.Http.Json" Version="9.0.8" />
+    <PackageReference Include="System.Net.Http.Json" Version="9.0.9" />
   </ItemGroup>
 
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

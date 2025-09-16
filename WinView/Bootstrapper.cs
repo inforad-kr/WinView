@@ -23,7 +23,8 @@ namespace WinView
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<DialogManager>()
                 .Singleton<IStorageService, LocalStorageService>("local")
-                .Singleton<IStorageService, SimpleStorageService>("simple");
+                .Singleton<IStorageService, SimpleStorageService>("simple")
+                .Singleton<IStorageService, HsStorageService>("hs");
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)

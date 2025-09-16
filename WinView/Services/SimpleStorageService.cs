@@ -18,8 +18,14 @@ namespace WinView.Services
             };
             var queryParams = HttpUtility.ParseQueryString(query);
             var folderName = queryParams["foldername"];
-            var fileNames = await client.GetFromJsonAsync<string[]>("storage/" + folderName);
-            return fileNames.Select(fileName => $"{client.BaseAddress}storage/{folderName}/{Path.ChangeExtension(fileName, ".jpg")}").ToArray();
+            if (folderName != null)
+            {
+                var fileNames = await client.GetFromJsonAsync<string[]>("storage/" + folderName);
+                return fileNames.Select(fileName => $"{client.BaseAddress}storage/{folderName}/{Path.ChangeExtension(fileName, ".jpg")}").ToArray();
+            }
+            return null;
         }
+
+        public string GetImageName(string imageUrl) => Path.GetFileName(imageUrl);
     }
 }

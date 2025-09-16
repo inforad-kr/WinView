@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -40,8 +41,14 @@ namespace WinView.ViewModels
                 try
                 {
                     var imageUrls = await m_StorageService.GetImageUrls(args[1]);
-                    Images.AddRange(imageUrls.Select(imageUrl => new Image(imageUrl)));
-                    SelectedImage = Images[0];
+                    if (imageUrls != null)
+                    {
+                        Images.AddRange(imageUrls.Select(imageUrl => new Image(imageUrl)
+                        {
+                            Name = Path.GetFileNameWithoutExtension(m_StorageService.GetImageName(imageUrl))
+                        }));
+                        SelectedImage = Images[0];
+                    }
                 }
                 catch (Exception ex)
                 {
