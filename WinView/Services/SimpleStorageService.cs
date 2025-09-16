@@ -25,5 +25,7 @@ namespace WinView.Services
             }
             return null;
         }
+
+        public string GetImageName(string imageUrl) => Path.GetFileName(imageUrl);
     }
 }

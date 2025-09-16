@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace WinView.Models
 {
@@ -14,6 +13,6 @@ namespace WinView.Models
 
         public Uri Uri => new Uri(m_Url);
 
-        public string Name => Path.GetFileNameWithoutExtension(m_Url);
+        public string Name { get; set; }
     }
 }

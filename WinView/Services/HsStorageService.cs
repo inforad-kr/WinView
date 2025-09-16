@@ -38,6 +38,8 @@ namespace WinView.Services
             return null;
         }
 
+        public string GetImageName(string imageUrl) => HttpUtility.ParseQueryString(new Uri(imageUrl).Query)["filename"];
+
         class ResultContainer
         {
             public FileRef[] ET_RESULT { get; set; }

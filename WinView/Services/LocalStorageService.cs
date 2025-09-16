@@ -10,5 +10,7 @@ namespace WinView.Services
             var filePaths = Directory.Exists(query) ? Directory.GetFiles(query, "*.jpg") : null;
             return Task.FromResult(filePaths);
         }
+
+        public string GetImageName(string imageUrl) => Path.GetFileName(imageUrl);
     }
 }
