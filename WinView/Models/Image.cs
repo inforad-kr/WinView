@@ -4,14 +4,12 @@ namespace WinView.Models
 {
     class Image
     {
-        readonly string m_Url;
-
         public Image(string url)
         {
-            m_Url = url;
+            Uri = new Uri(url);
         }
 
-        public Uri Uri => new Uri(m_Url);
+        public Uri Uri { get; }
 
         public string Name { get; set; }
     }
