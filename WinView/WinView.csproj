@@ -70,6 +70,7 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Services\DialogManager.cs" />
+    <Compile Include="Services\HsStorageService.cs" />
     <Compile Include="Services\IStorageService.cs" />
     <Compile Include="Services\LocalStorageService.cs" />
     <Compile Include="Services\SimpleStorageService.cs" />
